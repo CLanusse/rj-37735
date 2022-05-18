@@ -1,32 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css'
+import {Navbar} from './components/Navbar'
+
 
 function App() {
 
+  const contenido = "Este es el contenido de mi App."
+  const estiloContenido = {fontSize: "50px", border: "1px solid #FFF"}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Conrado Lanusse - the best</h1>
+        <Navbar/>
 
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <ul>
-          <h3>TUTORES</h3>
-          <li>Gaston</li>
-          <li>Sergio</li>
-          <li>Armando</li>
-          <li>Anthony</li>
-        </ul>
-
-        <a
-          className="App-link"
-          href="https://coderhouse.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Go Coder!
-        </a>
-      </header>
+        <p style={estiloContenido}>{contenido}</p>
     </div>
   );
 }
