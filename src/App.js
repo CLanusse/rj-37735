@@ -1,17 +1,23 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
-import {Navbar} from './components/Navbar'
+import {Navbar} from './components/Navbar/Navbar'
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
+
 
 
 function App() {
 
-  const contenido = "Este es el contenido de mi App."
-  const estiloContenido = {fontSize: "50px", border: "1px solid #FFF"}
+  const profesor = {
+    nombre: 'Conrado Lanusse',
+    rol: 'Profesor de React JS'
+  }
 
   return (
-    <div className="App">
+    <div>
         <Navbar/>
 
-        <p style={estiloContenido}>{contenido}</p>
+        <ItemListContainer nombre={profesor.nombre}/>
+        
     </div>
   );
 }
