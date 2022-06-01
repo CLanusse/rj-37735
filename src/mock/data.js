@@ -4,7 +4,7 @@ const productos = [
         nombre: "Producto 1",
         desc: "Una descripción",
         precio: 1200,
-        img: 'https://via.placeholder.com/220'
+        img: './imgs/Screenshot_2.png'
     },
     {
         id: 2,
