@@ -1,0 +1,31 @@
+.header2 {
+    background-color: rgb(31, 77, 83);
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px 0;
+
+        .header__logo {
+            color: white;
+        }
+
+
+        .header__navbar {
+            display: flex;
+            width: 50%;
+            justify-content: space-around;
+            align-items: center;
+
+            .header__navlink {
+                color: white;
+                font-weight: 700;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+    }
+}

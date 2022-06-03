@@ -10,9 +10,9 @@ export const Navbar = () => {
                 <h1 className="header__logo">PROYECTO CODER</h1>
 
                 <nav className="header__navbar">
-                    <p className="header__navlink">Enlace 1</p>
-                    <p className="header__navlink">Enlace 2</p>
-                    <p className="header__navlink">Enlace 3</p>
+                    <a href="/" className="header__navlink">Home</a>
+                    <a href="/nosotros" className="header__navlink">Nosotros</a>
+                    <a href="/contacto" className="header__navlink">Contacto</a>
                 </nav>
             </div>
         </header>
