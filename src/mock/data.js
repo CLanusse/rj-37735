@@ -5,7 +5,8 @@ const productos = [
         desc: "Una descripción",
         precio: 1200,
         categoria: "remeras",
-        img: './imgs/Screenshot_2.png'
+        img: './imgs/Screenshot_2.png',
+        stock: 15
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const productos = [
         desc: "Una descripción",
         precio: 2200,
         categoria: "remeras",
-        img: 'https://via.placeholder.com/220'
+        img: 'https://via.placeholder.com/220',
+        stock: 15
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const productos = [
         desc: "Una descripción",
         precio: 3200,
         categoria: "buzos",
-        img: 'https://via.placeholder.com/220'
+        img: 'https://via.placeholder.com/220',
+        stock: 8
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ const productos = [
         desc: "Una descripción",
         precio: 4200,
         categoria: "buzos",
-        img: 'https://via.placeholder.com/220'
+        img: 'https://via.placeholder.com/220',
+        stock: 15
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ const productos = [
         desc: "Una descripción",
         precio: 5200,
         categoria: "zapatillas",
-        img: 'https://via.placeholder.com/220'
+        img: 'https://via.placeholder.com/220',
+        stock: 6
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ const productos = [
         desc: "Una descripción",
         precio: 6200,
         categoria: "zapatillas",
-        img: 'https://via.placeholder.com/220'
+        img: 'https://via.placeholder.com/220',
+        stock: 9
     },
 ]
 
