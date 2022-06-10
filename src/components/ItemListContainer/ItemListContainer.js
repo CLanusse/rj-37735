@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Spinner } from "react-bootstrap"
 import { pedirDatos } from "../../mock/pedirDatos"
 import ItemList from "../ItemList/ItemList"
@@ -9,7 +9,6 @@ export const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
-
 
     // const params = useParams()
     const { categoryId } = useParams()

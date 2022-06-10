@@ -1,7 +1,7 @@
 .header2 {
     background-color: rgb(31, 77, 83);
 
-    &__container {
+    .header__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -26,6 +26,11 @@
                 text-transform: uppercase;
                 cursor: pointer;
             }
+        }
+
+        .widget {
+            color: white;
+            font-size: 40px;
         }
     }
 }

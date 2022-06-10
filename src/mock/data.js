@@ -5,7 +5,7 @@ const productos = [
         desc: "Una descripción",
         precio: 1200,
         categoria: "remeras",
-        img: './imgs/Screenshot_2.png',
+        img: '/imgs/Screenshot_2.png',
         stock: 15
     },
     {
