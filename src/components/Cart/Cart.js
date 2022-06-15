@@ -1,9 +1,15 @@
 import { useCartContext } from "../../context/CartContext"
 import { BsFillTrashFill } from "react-icons/bs"
+import { Link } from "react-router-dom"
+import EmptyCart from "./EmptyCart"
 
 const Cart = () => {
 
     const {cart, totalPrice, emptyCart, removeItem} = useCartContext()
+
+
+    if (cart.length === 0) return <EmptyCart/>
+
 
     return (
         <div className="container my-5">
@@ -21,7 +27,6 @@ const Cart = () => {
                 </div>
                 ))
             }
-
 
             <h4>TOTAL: ${totalPrice()}</h4>
 

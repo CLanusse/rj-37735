@@ -4,7 +4,10 @@ import './LoginScreen.scss'
 
 const LoginScreen = () => {
 
-    const {login} = useAuthContext()
+    const {login, error} = useAuthContext()
+
+    console.log(error.email)
+    console.log(error.password)
 
     const [values, setValues] = useState({
         email: '',
@@ -39,6 +42,7 @@ const LoginScreen = () => {
                         className="form-control my-4"
                         placeholder='Email de usuario'
                     />
+                    {error.email && <small className='text-danger'>{error.email}</small>}
 
                     <input
                         type={"password"} 
@@ -48,7 +52,9 @@ const LoginScreen = () => {
                         className="form-control my-4"
                         placeholder='Contraseña'
                     />
+                    {error.password && <small className='text-danger'>{error.password}</small>}
 
+                    <br/>
                     <button type='submit' className='btn btn-primary'>Enviar</button>
                 </form>
 

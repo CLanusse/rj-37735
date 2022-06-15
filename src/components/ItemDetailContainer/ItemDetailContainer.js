@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Spinner } from "react-bootstrap"
 import { pedirDatos } from "../../mock/pedirDatos"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import Loader from "../Loader/Loader"
 
 
 export const ItemDetailContainer = () => {
@@ -33,11 +33,8 @@ export const ItemDetailContainer = () => {
             
             {
                 loading
-                ?   <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-
-                :  <ItemDetail item={item}/>
+                ?   <Loader/>   
+                :   <ItemDetail item={item}/>
             }
             
         </section>

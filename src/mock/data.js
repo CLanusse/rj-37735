@@ -42,7 +42,7 @@ const productos = [
         precio: 5200,
         categoria: "zapatillas",
         img: 'https://via.placeholder.com/220',
-        stock: 6
+        stock: 0
     },
     {
         id: 6,

@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react"
-import { Spinner } from "react-bootstrap"
+import { useEffect, useState } from "react"
 import { pedirDatos } from "../../mock/pedirDatos"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
+import Loader from "../Loader/Loader"
 
 
 export const ItemListContainer = () => {
@@ -15,7 +15,7 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-
+        // peticion de datos al MOCK
         pedirDatos()
             .then((resp) => {
                 if (!categoryId) {
@@ -34,16 +34,12 @@ export const ItemListContainer = () => {
 
     return (
         <section className="container my-5">
-            
             {
                 loading
-                ?   <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-
+                ?  <Loader/>
                 :  <ItemList items={items}/>
             }
-            
+
         </section>
     )
 }
