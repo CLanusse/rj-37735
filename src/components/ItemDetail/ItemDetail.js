@@ -35,7 +35,7 @@ const ItemDetail = ({item}) => {
             <p>{item.desc}</p>
             <h4>Precio: ${item.precio}</h4>
 
-            <MemoComp />
+            {/* <MemoComp /> */}
 
             <hr/>
             {

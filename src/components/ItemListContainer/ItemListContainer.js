@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../mock/pedirDatos"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
-
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../../firebase/config"
 
 export const ItemListContainer = () => {
 
@@ -15,21 +15,26 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        // peticion de datos al MOCK
-        pedirDatos()
+        
+        // 1.- armar la referencia
+        const productosRef = collection(db, "productos")
+        const q = categoryId ? query(productosRef, where("categoria", "==", categoryId)) : productosRef
+        // 2.- (async) llamar a Firebase con la referencia anterior
+        getDocs(q)
             .then((resp) => {
-                if (!categoryId) {
-                    setItems( resp )
-                } else {
-                    setItems( resp.filter((item) => item.categoria === categoryId) )
-                }
-            })
-            .catch((error) => {
-                console.log('ERROR', error)
+                const newItems = resp.docs.map((doc) => {
+                    return {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                })
+                console.log(newItems)
+                setItems( newItems )
             })
             .finally(() => {
                 setLoading(false)
             })
+        
     }, [categoryId])
 
     return (
