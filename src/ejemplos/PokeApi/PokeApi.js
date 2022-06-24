@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
+import { useFetch } from "../../hooks/useFetch"
+import { pedirDatos } from "../../mock/pedirDatos"
 
 
 const PokeApi = () => {
     
-    const [pokemon, setPokemon] = useState(null)
     const [id, setId] = useState(1)
-    
+    const { data: pokemon } = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}`, [id])
+
+
     const handleSiguiente = () => {
         setId(id + 1)
     }
@@ -13,31 +16,10 @@ const PokeApi = () => {
         id > 1 && setId(id - 1)
     }
 
-    // const handleInput = (e) => {
-    //     fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}`)
-    //         .then((resp) => resp.json())
-    //         .then((data) => {
-    //             setPokemon( data )
-    //         })
-    // }
-
-    useEffect(() => {
-        
-        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-            .then((resp) => resp.json())
-            .then((data) => {
-                setPokemon( data )
-            })
-
-    }, [id])
     
     return (
         <div className="container my-5">
             <h2>Poke API</h2>
-            <hr/>
-
-            {/* <input type="text" onChange={handleInput}/>  */}
-
             <hr/>
 
             <button className="btn btn-outline-primary" onClick={handleAnterior}>ANTERIOR</button>

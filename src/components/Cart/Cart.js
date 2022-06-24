@@ -7,9 +7,7 @@ const Cart = () => {
 
     const {cart, totalPrice, emptyCart, removeItem} = useCartContext()
 
-
     if (cart.length === 0) return <EmptyCart/>
-
 
     return (
         <div className="container my-5">
@@ -18,13 +16,13 @@ const Cart = () => {
 
             {
                 cart.map((item) => (
-                <div key={item.id} className="my-2">
-                    <h5>{item.nombre}</h5>
-                    <p>Cantidad: {item.cantidad}</p>
-                    <h6>Precio: ${item.precio * item.cantidad}</h6>
-                    <button onClick={() => removeItem(item.id)} className="btn btn-danger"><BsFillTrashFill/></button>
-                    <hr/>
-                </div>
+                    <div key={item.id} className="my-2">
+                        <h5>{item.nombre}</h5>
+                        <p>Cantidad: {item.cantidad}</p>
+                        <h6>Precio: ${item.precio * item.cantidad}</h6>
+                        <button onClick={() => removeItem(item.id)} className="btn btn-danger"><BsFillTrashFill/></button>
+                        <hr/>
+                    </div>
                 ))
             }
 

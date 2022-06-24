@@ -1,41 +1,10 @@
-import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
 import Loader from "../Loader/Loader"
-import { collection, getDocs, query, where } from "firebase/firestore"
-import { db } from "../../firebase/config"
+import { useProductos } from "./useProductos"
 
 export const ItemListContainer = () => {
 
-    const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    // const params = useParams()
-    const { categoryId } = useParams()
-
-    useEffect(() => {
-        setLoading(true)
-        
-        // 1.- armar la referencia
-        const productosRef = collection(db, "productos")
-        const q = categoryId ? query(productosRef, where("categoria", "==", categoryId)) : productosRef
-        // 2.- (async) llamar a Firebase con la referencia anterior
-        getDocs(q)
-            .then((resp) => {
-                const newItems = resp.docs.map((doc) => {
-                    return {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                })
-                console.log(newItems)
-                setItems( newItems )
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-        
-    }, [categoryId])
+    const { items, loading } = useProductos()
 
     return (
         <section className="container my-5">
@@ -44,7 +13,6 @@ export const ItemListContainer = () => {
                 ?  <Loader/>
                 :  <ItemList items={items}/>
             }
-
         </section>
     )
 }
